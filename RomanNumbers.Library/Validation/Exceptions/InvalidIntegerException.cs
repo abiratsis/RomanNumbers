@@ -1,6 +1,6 @@
 ﻿namespace RomanNumbers.Library.Validation.Exceptions
 {
-    public class InvalidIntegerException : RomanNumberBaseException
+    public class InvalidIntegerException : RomanNumbersBaseException
     {
     }
 }

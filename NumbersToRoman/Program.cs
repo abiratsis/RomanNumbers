@@ -24,7 +24,7 @@ namespace NumbersToRoman
 
                 Console.WriteLine($"Roman value of {num} is {roman}");
             }
-            catch (RomanNumberBaseException ex)
+            catch (RomanNumbersBaseException ex)
             {
                 Console.WriteLine(ex);
             }

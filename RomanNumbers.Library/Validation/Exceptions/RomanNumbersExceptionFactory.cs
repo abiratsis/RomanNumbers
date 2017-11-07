@@ -2,7 +2,7 @@
 {
     internal class RomanNumbersExceptionFactory
     {
-        public static RomanNumberBaseException Create(ErrorType error)
+        public static RomanNumbersBaseException Create(ErrorType error)
         {
             switch (error)
             {

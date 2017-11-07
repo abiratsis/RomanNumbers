@@ -1,6 +1,6 @@
 ﻿namespace RomanNumbers.Library.Validation.Exceptions
 {
-    public class OutOfRangeException : RomanNumberBaseException
+    public class OutOfRangeException : RomanNumbersBaseException
     {
     }
 }
