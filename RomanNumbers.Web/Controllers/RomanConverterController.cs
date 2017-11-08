@@ -9,12 +9,14 @@ namespace RomanNumbers.Web.Controllers
     [Route("roman")]
     public class RomanConverterController : Controller
     {
-        private readonly INumberConverter _converter;
+        private readonly INumberConverter _numberConverter;
+        private readonly ITextConverter _textConverter;
         private readonly ILogger<RomanConverterController> _logger;
 
-        public RomanConverterController(INumberConverter converter, ILogger<RomanConverterController> logger)
+        public RomanConverterController(INumberConverter converter, ITextConverter textConverter, ILogger<RomanConverterController> logger)
         {
-            _converter = converter;
+            _numberConverter = converter;
+            _textConverter = textConverter;
             _logger = logger;
         }
 
@@ -24,15 +26,15 @@ namespace RomanNumbers.Web.Controllers
             return "Welcome to Arabic -> Roman numbers API.";
         }
 
-        // GET roman/convert/122
-        [HttpGet("convert/{number}")]
-        public string Convert(string number)
+        // GET roman/122
+        [HttpGet("{number}")]
+        public string Get(string number)
         {
             string error;
             try
             {
-                _converter.ArabicNumber = number;
-                return _converter.Convert();
+                _numberConverter.ArabicNumber = number;
+                return _numberConverter.Convert();
             }
             catch (InvalidIntegerException)
             {
@@ -60,9 +62,34 @@ namespace RomanNumbers.Web.Controllers
                 _logger.LogError(e.StackTrace);
             }
 
-            return error;
+            return  error;
         }
 
+        // GET roman/text/I am a roman text 
+        [HttpGet("text/{original}")]
+        public IActionResult GetText(string original)
+        {
+            string error;
+            try
+            {
+                _textConverter.OriginalText = original;
+                return Json(_textConverter.Convert());
+            }
+            catch (ArgumentNullException e)
+            {
+                error = $"Null argument for parameter {e.ParamName}";
+                _logger.LogError(error);
+
+                return BadRequest(error);
+            }
+            catch (Exception e)
+            {
+                error = "Aknown error, please contact the system administrator.";
+                _logger.LogError(e.StackTrace);
+
+                return StatusCode(500, error);
+            }
+        }
 
     }
 }

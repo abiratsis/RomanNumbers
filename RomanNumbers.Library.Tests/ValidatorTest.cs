@@ -6,7 +6,7 @@ namespace RomanNumbers.Library.Tests
     [TestFixture]
     public class ValidatorTest
     {
-        Validator _validator = new Validator();
+        readonly Validator _validator = new Validator();
 
         [TestCase("122", ErrorType.None)]
         [TestCase("1", ErrorType.None)]
