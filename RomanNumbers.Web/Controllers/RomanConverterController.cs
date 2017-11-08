@@ -9,10 +9,10 @@ namespace RomanNumbers.Web.Controllers
     [Route("roman")]
     public class RomanConverterController : Controller
     {
-        private readonly IConverter _converter;
+        private readonly INumberConverter _converter;
         private readonly ILogger<RomanConverterController> _logger;
 
-        public RomanConverterController(IConverter converter, ILogger<RomanConverterController> logger)
+        public RomanConverterController(INumberConverter converter, ILogger<RomanConverterController> logger)
         {
             _converter = converter;
             _logger = logger;

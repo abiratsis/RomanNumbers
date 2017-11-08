@@ -9,13 +9,13 @@ namespace RomanNumbers.Web.Tests
     [TestFixture]
     public class RomanConverterControllerTest
     {
-        private IConverter _converter;
+        private INumberConverter _converter;
         private ILogger<RomanConverterController> _logger;
 
         [OneTimeSetUp]
         public void Intialize()
         {
-            _converter = new ArabicToRomanConverter();
+            _converter = new RomanNumberConverter();
 
             ILoggerFactory loggerFactory = new NullLoggerFactory();
             _logger = new Logger<RomanConverterController>(loggerFactory);

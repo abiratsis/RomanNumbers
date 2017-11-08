@@ -7,7 +7,7 @@ using RomanNumbers.Library.Validation.Exceptions;
 
 namespace RomanNumbers.Library
 {
-    public class ArabicToRomanConverter : IConverter
+    public class RomanNumberConverter : INumberConverter
     {
         private static readonly Dictionary<int, string> _romanDictionary = new Dictionary<int, string>
         {
@@ -38,12 +38,12 @@ namespace RomanNumbers.Library
         }
         private static readonly Validator _validator = new Validator();
 
-        public ArabicToRomanConverter()
+        public RomanNumberConverter()
         {
 
         }
 
-        public ArabicToRomanConverter(string arabic)
+        public RomanNumberConverter(string arabic)
         {
             Validate(arabic);
             _arabicNumber = arabic;
@@ -77,7 +77,7 @@ namespace RomanNumbers.Library
             return romanNumber.ToString();
         }
 
-        private void Validate(string arabicNumber)
+        public void Validate(string arabicNumber)
         {
             if (arabicNumber == null)
                 throw new ArgumentNullException(nameof(arabicNumber));

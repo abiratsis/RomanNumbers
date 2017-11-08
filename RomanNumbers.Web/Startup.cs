@@ -25,7 +25,7 @@ namespace RomanNumbers.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IConverter, ArabicToRomanConverter>();
+            services.AddSingleton<INumberConverter, RomanNumberConverter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
