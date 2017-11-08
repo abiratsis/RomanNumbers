@@ -21,17 +21,17 @@ namespace RomanNumbers.Web.Controllers
         [HttpGet("index")]
         public string Index()
         {
-            return "Welcome to Arabic -> Roman API.";
+            return "Welcome to Arabic -> Roman numbers API.";
         }
 
         // GET roman/convert/122
-        [HttpGet("convert/{arabic}")]
-        public string Convert(string arabic)
+        [HttpGet("convert/{number}")]
+        public string Convert(string number)
         {
             string error;
             try
             {
-                _converter.ArabicNumber = arabic;
+                _converter.ArabicNumber = number;
                 return _converter.Convert();
             }
             catch (InvalidIntegerException)
