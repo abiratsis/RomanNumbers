@@ -18,7 +18,13 @@ namespace RomanNumbers.Web.Controllers
             _logger = logger;
         }
 
-        // GET api/roman/convert/122
+        [HttpGet("index")]
+        public string Index()
+        {
+            return "Welcome to Arabic -> Roman API.";
+        }
+
+        // GET roman/convert/122
         [HttpGet("convert/{arabic}")]
         public string Convert(string arabic)
         {
