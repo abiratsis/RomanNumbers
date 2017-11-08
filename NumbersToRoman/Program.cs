@@ -19,7 +19,7 @@ namespace NumbersToRoman
 
             try
             {
-                var convertor = new ArabicToRomanConvertor(num.ToString());
+                var convertor = new ArabicToRomanConverter(num.ToString());
                 string roman = convertor.Convert();
 
                 Console.WriteLine($"Roman value of {num} is {roman}");
