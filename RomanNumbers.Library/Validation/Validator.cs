@@ -1,6 +1,6 @@
 ﻿namespace RomanNumbers.Library.Validation
 {
-    class Validator
+    public class Validator
     {
         public ErrorType Validate(string number)
         {
