@@ -16,7 +16,7 @@ To convert all the numbers within a text execute the next GET request:
 GET http://localhost:10984/roman/text/YOUR_TEXT_HERE
 ```
 ## Runing application
-Since RomanNumbers is a .NET Core application in order to execute it first navigate to the RomanNumbers.Web folder and execute:
+Since RomanNumbers is a .NET Core application in order to execute it first navigate under the RomanNumbers.Web folder and then execute:
 
 ```
 dotnet run
